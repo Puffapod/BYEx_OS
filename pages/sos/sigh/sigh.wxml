@@ -1,0 +1,39 @@
+<!-- 生理性叹息 — Physiological Sigh -->
+<view class="container {{bgClass}}">
+
+  <!-- 轮次指示器 -->
+  <view class="round-indicator" wx:if="{{isActive}}">
+    <text>{{round}} / {{totalRounds}}</text>
+  </view>
+
+  <!-- 呼吸光圈 -->
+  <view class="halo-wrapper" bindtap="{{!isActive && !isComplete ? 'start' : ''}}">
+    <!-- 外围光晕 -->
+    <view class="halo-outer-glow"></view>
+    <!-- Mesh Gradient 核心 -->
+    <view class="halo halo--{{phase}}"></view>
+
+    <!-- 开始提示 -->
+    <view class="start-hint" wx:if="{{!isActive && !isComplete}}">
+      <text class="start-hint__text">轻触开始</text>
+    </view>
+  </view>
+
+  <!-- 文字提示 -->
+  <view class="prompt" wx:if="{{isActive}}">
+    <text class="prompt__text">{{promptText}}</text>
+  </view>
+
+  <!-- 完成界面 -->
+  <view class="complete" wx:if="{{isComplete}}">
+    <text class="complete__text">
+      你刚才真的很棒，你靠自己夺回了 3 分钟的控制权。
+    </text>
+
+    <view class="complete__actions">
+      <button class="btn btn--primary" bindtap="restart">再来一次</button>
+      <button class="btn btn--secondary" bindtap="goNext">下一步</button>
+      <button class="btn btn--ghost" bindtap="goBack">返回</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,61 @@
+<!-- 蝴蝶拍 — Butterfly Hug (双侧刺激) -->
+<view class="page">
+  <!-- 背景层 -->
+  <image class="bg-img" src="/butterfly_background.JPG" mode="aspectFill" />
+  <view class="bg-overlay {{bgClass}}"></view>
+
+  <!-- 内容层 -->
+  <view class="content">
+
+    <!-- 进度指示器 -->
+    <view class="set-indicator" wx:if="{{isActive}}">
+      <text>{{setCount}} / {{totalSets}}</text>
+    </view>
+
+    <!-- 蝴蝶容器 -->
+    <view class="butterfly-container" bindtap="{{!isActive && !isComplete ? 'start' : ''}}">
+      <view class="wing wing--left {{activeSide === 'left' ? 'active' : ''}}">
+        <image class="wing__img" src="/butterfly_left_wing.png" mode="widthFix" />
+      </view>
+      <view class="wing wing--right {{activeSide === 'right' ? 'active' : ''}}">
+        <image class="wing__img" src="/butterfly_right_wing.png" mode="widthFix" />
+      </view>
+    </view>
+
+    <!-- 开始提示 (idle) -->
+    <view class="start-hint" wx:if="{{!isActive && !isComplete}}">
+      <text class="start-hint__text">轻触开始</text>
+    </view>
+
+    <!-- 引导文案 (idle) -->
+    <view class="intro" wx:if="{{!isActive && !isComplete}}">
+      <text class="intro__text">交叉双手，钩住大拇指\n像蝴蝶一样停在胸口\n左右交替，轻拍肩膀</text>
+    </view>
+
+    <!-- 节拍文字 (tapping) -->
+    <text class="rhythm-text" wx:if="{{isActive && phase === 'tapping'}}">{{currentSideText}}</text>
+
+    <!-- 深呼吸提示 (breathing) -->
+    <view class="prompt" wx:if="{{isActive && phase === 'breathing'}}">
+      <text class="prompt__text--breathe">深呼吸</text>
+    </view>
+
+    <!-- 辅助文字 (tapping) -->
+    <view class="subtle-hint" wx:if="{{isActive && phase === 'tapping'}}">
+      <text class="subtle-hint__text">慢一点，感受手掌的温度</text>
+    </view>
+
+    <!-- 完成界面 -->
+    <view class="complete" wx:if="{{isComplete}}">
+      <text class="complete__text">
+        你做到了，身体记住了这份安全感。
+      </text>
+      <view class="complete__actions">
+        <button class="btn btn--primary" bindtap="restart">再来一次</button>
+        <button class="btn btn--secondary" bindtap="goNext">下一步</button>
+        <button class="btn btn--ghost" bindtap="goBack">返回</button>
+      </view>
+    </view>
+
+  </view>
+</view>

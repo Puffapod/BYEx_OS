@@ -1,0 +1,12 @@
+<view class="container">
+  <text class="title">BYEx OS</text>
+  <navigator url="/pages/sos/sigh/sigh" class="nav-btn">
+    SOS · 叹息法
+  </navigator>
+  <navigator url="/pages/sos/grounding/grounding" class="nav-btn" style="margin-top: 24rpx;">
+    SOS · 着陆法
+  </navigator>
+  <navigator url="/pages/sos/butterfly/butterfly" class="nav-btn" style="margin-top: 24rpx;">
+    SOS · 蝴蝶拍
+  </navigator>
+</view>

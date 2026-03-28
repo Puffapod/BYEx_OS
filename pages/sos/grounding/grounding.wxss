@@ -1,0 +1,235 @@
+/* ========================================
+   5-4-3-2-1 着陆法 — Grounding
+   Theme: Winter Solace
+   ======================================== */
+
+/* ---------- 容器 ---------- */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%);
+  padding: 40rpx 40rpx 200rpx;
+  transition: background 1.5s ease-in-out;
+}
+
+.container.bg-blush {
+  background: linear-gradient(180deg, var(--bg-warm) 0%, var(--accent-blush) 100%);
+}
+
+/* ---------- 引导语 ---------- */
+
+.step-section {
+  width: 100%;
+}
+
+.step-intro {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 30rpx;
+  color: var(--text-dim);
+  text-align: center;
+  letter-spacing: 2rpx;
+  line-height: 1.8;
+  margin-bottom: 16rpx;
+}
+
+/* ---------- 步骤列表 ---------- */
+
+.step-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28rpx;
+  margin-top: 24rpx;
+}
+
+/* ---------- 步骤卡片 ---------- */
+
+.step-card {
+  display: flex;
+  align-items: center;
+  padding: 36rpx 40rpx;
+  border-radius: 60rpx;
+  border-left: 8rpx solid transparent;
+  box-shadow: var(--shadow-warm);
+  transition: border-color var(--transition-gentle),
+              background-color var(--transition-gentle);
+}
+
+/* --- 5 种 tint 色彩 --- */
+
+.tint-sun {
+  border-left-color: #FEF3C7;
+  background-color: rgba(254, 243, 199, 0.2);
+}
+
+.tint-sand {
+  border-left-color: #E8DCCA;
+  background-color: rgba(196, 170, 138, 0.12);
+}
+
+.tint-lilac {
+  border-left-color: #D4C6F0;
+  background-color: rgba(192, 180, 230, 0.12);
+}
+
+.tint-rose {
+  border-left-color: #F5C6DC;
+  background-color: rgba(252, 231, 243, 0.25);
+}
+
+.tint-peach {
+  border-left-color: #FDDCB5;
+  background-color: rgba(253, 220, 181, 0.18);
+}
+
+/* ---------- 指令文字 ---------- */
+
+.step-body {
+  flex: 1;
+}
+
+.step-label {
+  font-size: 32rpx;
+  color: var(--text-dim);
+  letter-spacing: 2rpx;
+  transition: color 0.35s ease-in-out;
+}
+
+.checked .step-label {
+  color: var(--text-main);
+}
+
+/* ---------- 勾号动画 ---------- */
+
+.step-check {
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-icon {
+  font-size: 40rpx;
+  color: var(--accent-amber);
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.checked .check-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- 完成按钮（底部固定） ---------- */
+
+.finish-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20rpx 40rpx calc(40rpx + env(safe-area-inset-bottom));
+  background: linear-gradient(
+    180deg,
+    rgba(247, 243, 233, 0) 0%,
+    var(--bg) 30%
+  );
+}
+
+.btn-finish {
+  width: 100%;
+  height: 112rpx;
+  border-radius: var(--radius-lg);
+  background-color: var(--accent-sun);
+  color: var(--text-main);
+  font-size: 34rpx;
+  font-weight: 600;
+  letter-spacing: 6rpx;
+  line-height: 112rpx;
+  box-shadow: 0 6rpx 30rpx rgba(251, 191, 36, 0.25);
+  transition: opacity var(--transition-gentle);
+}
+
+.btn-finish--disabled {
+  opacity: 0.5;
+}
+
+/* ---------- 完成界面 ---------- */
+
+.complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 0 60rpx;
+  min-height: 70vh;
+  animation: complete-enter 1.2s ease-out;
+}
+
+@keyframes complete-enter {
+  from { opacity: 0; transform: translateY(40rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.complete__text {
+  font-family: var(--font-serif);
+  font-size: 36rpx;
+  color: var(--text-main);
+  text-align: center;
+  line-height: 2;
+  letter-spacing: 3rpx;
+  font-weight: 400;
+  margin-bottom: 80rpx;
+}
+
+/* ---------- 按钮组 ---------- */
+
+.complete__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24rpx;
+  width: 100%;
+}
+
+.btn {
+  width: 480rpx;
+  height: 96rpx;
+  border-radius: var(--radius-lg);
+  font-size: 28rpx;
+  font-family: var(--font-sans);
+  letter-spacing: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 96rpx;
+}
+
+.btn--primary {
+  background-color: var(--accent-sun);
+  color: var(--text-main);
+  font-weight: 600;
+  box-shadow: 0 4rpx 20rpx rgba(251, 191, 36, 0.2);
+}
+
+.btn--secondary {
+  background: var(--surface);
+  backdrop-filter: blur(40rpx);
+  -webkit-backdrop-filter: blur(40rpx);
+  border: 1px solid var(--surface-border);
+  color: var(--text-main);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn--ghost {
+  background-color: transparent;
+  color: var(--text-dim);
+  font-size: 26rpx;
+}

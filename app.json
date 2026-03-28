@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/sos/sigh/sigh",
+    "pages/sos/grounding/grounding",
+    "pages/sos/butterfly/butterfly"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#F7F3E9",
+    "navigationBarTitleText": "BYEx",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F7F3E9",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2"
+}

@@ -1,0 +1,37 @@
+<!-- 5-4-3-2-1 着陆法 — Grounding -->
+<view class="container {{bgClass}}">
+
+  <!-- 引导语 + 步骤列表 -->
+  <view class="step-section" wx:if="{{!isComplete}}">
+    <text class="step-intro">请深呼吸一次，然后环顾四周，完成以下</text>
+    <view class="step-list">
+      <view wx:for="{{steps}}" wx:key="index"
+            class="step-card {{item.tint}} {{item.checked ? 'checked' : ''}}">
+        <view class="step-body">
+          <text class="step-label">{{item.label}}</text>
+        </view>
+        <view class="step-check">
+          <text class="check-icon">✓</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 完成按钮 -->
+  <view class="finish-area" wx:if="{{!isComplete}}">
+    <button class="btn-finish {{allDone ? 'btn-finish--disabled' : ''}}"
+            disabled="{{allDone}}" bindtap="onFinish">
+      完成
+    </button>
+  </view>
+
+  <!-- 结束页面 -->
+  <view class="complete" wx:if="{{isComplete}}">
+    <text class="complete__text">你已经安全回到了当下。</text>
+    <view class="complete__actions">
+      <button class="btn btn--primary" bindtap="restart">再来一次</button>
+      <button class="btn btn--secondary" bindtap="goNext">下一步</button>
+      <button class="btn btn--ghost" bindtap="goBack">返回</button>
+    </view>
+  </view>
+</view>

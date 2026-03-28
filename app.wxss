@@ -1,0 +1,84 @@
+/* ========================================
+   BYEx OS — Global Design System
+   Theme: Winter Solace · 暖色疗愈系
+   燕麦 · 琥珀 · 腮红 · 文学宋体
+   ======================================== */
+
+page {
+  /* ---- 背景 ---- */
+  --bg: #F7F3E9;
+  --bg-warm: #FFFBF0;
+  --bg-blush: #FCE7F3;
+
+  /* ---- 玻璃态（亮底适配） ---- */
+  --surface: rgba(255, 255, 255, 0.6);
+  --surface-border: rgba(167, 139, 100, 0.12);
+
+  /* ---- 文字 ---- */
+  --text-main: #433228;
+  --text-dim: #A68A64;
+
+  /* ---- 强调色 ---- */
+  --accent-sun: #FEF3C7;
+  --accent-blush: #FCE7F3;
+  --accent-amber: #F59E0B;
+  --accent-amber-soft: rgba(245, 158, 11, 0.15);
+
+  /* ---- 光圈色谱（暖橙黄） ---- */
+  --halo-warm: rgba(254, 243, 199, 0.8);
+  --halo-warm-mid: rgba(251, 191, 36, 0.25);
+  --halo-warm-edge: rgba(254, 243, 199, 0);
+  --halo-glow: rgba(251, 191, 36, 0.2);
+
+  /* ---- 投影（暖色调） ---- */
+  --shadow-soft: 0 4rpx 24rpx rgba(167, 139, 100, 0.1);
+  --shadow-warm: 0 8rpx 40rpx rgba(167, 139, 100, 0.12);
+
+  /* ---- 圆角 ---- */
+  --radius-round: 50%;
+  --radius-lg: 24rpx;
+  --radius-md: 16rpx;
+  --radius-sm: 12rpx;
+
+  /* ---- 过渡 ---- */
+  --transition-page: 400ms ease-in-out;
+  --transition-gentle: 300ms ease-in-out;
+
+  /* ---- 字体 ---- */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'PingFang SC',
+    'Helvetica Neue', sans-serif;
+  --font-serif: 'Noto Serif SC', 'Songti SC', 'STSong', Georgia,
+    'Times New Roman', serif;
+
+  /* ---- 全局默认 ---- */
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+}
+
+/* ========================================
+   全局组件基础样式
+   ======================================== */
+
+/* ---- 玻璃拟态卡片（亮底） ---- */
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: blur(40rpx);
+  -webkit-backdrop-filter: blur(40rpx);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---- 按钮重置 ---- */
+button {
+  border-radius: var(--radius-lg);
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: inherit;
+}
+
+button::after {
+  border: none;
+}
